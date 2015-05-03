@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Eventbrite Visualizer</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <!--Titles & Introduction -->
+    <div id="intro">
+      <h1>Eventbrite Visualizer</h1>
+      <h2>Illustrating event statistics for the top 25 most populous U.S. cities</h2>
+    </div>
+
+    <!--Tooltip info-->
+    <p id="instr">How to use?</p>
+    <div id="useInstr">
+      Hover over the graph to see event statistics.<br>
+      Click the graph to see the list of the first 10 events for a particular category.<br>
+      Click the 'View Form' button to choose the cities.<br>
+      Click the 'View Legend' button to see the color-coded legend<br>
+      <div class="eb-logo">
+        <a href="http://developer.eventbrite.com/news/branding/" target="_blank">
+          <img src="http://evbdn.eventbrite.com/s3-s3/static/images/django/logos/eb_powered.png"/>
+        </a>
+      </div>
+    </div>
+
+    <!--Form/legend buttons-->
+    <div class="buttons">
+      <button id="formbtn" class="slide-button" onclick="openPanel()">Show Form</button>
+      <button id="legendbtn" onclick="toggleLegend()">Show Legend</button>
+    </div>
+
+    <!-- Sliding div form starts here -->
+    <div class="slider" onclick="openPanel()">
+      <h2>Configure Graph</h2>
+      <p>Select up to 5 cities</p>
+      <hr>
+      <div id="city1">
+        <select>
+          <option value="nocity">Choose 1st city</option>
+          <option value="Austin">Austin, TX</option>
+          <option value="Boston">Boston, MA</option>
+          <option value="Charlotte">Charlotte, NC</option>
+          <option value="Chicago">Chicago, IL</option>
+          <option value="Columbus">Columbus, OH</option>
+          <option value="Dallas">Dallas, TX</option>
+          <option value="Denver">Denver, CO</option>
+          <option value="Detroit">Detroit, MI</option>
+          <option value="El Paso">El Paso, TX</option>
+          <option value="Fort Worth">Fort Worth, TX</option>
+          <option value="Houston">Houston, TX</option>
+          <option value="Indianapolis">Indianapolis, IN</option>
+          <option value="Jacksonville">Jacksonville, FL</option>
+          <option value="Los Angeles">Los Angeles, CA</option>
+          <option value="Memphis">Memphis, TN</option>
+          <option value="Nashville">Nashville, TN</option>
+          <option value="New York">New York, NY</option>
+          <option value="Philadelphia">Philadelphia, PA</option>
+          <option value="Phoenix">Phoenix, AZ</option>
+          <option value="San Antonio">San Antonio, TX</option>
+          <option value="San Diego">San Diego, CA</option>
+          <option value="San Francisco">San Francisco, CA</option>
+          <option value="San Jose">San Jose, CA</option>
+          <option value="Seattle">Seattle, WA</option>
+          <option value="Washington">Washington, DC</option>
+        </select>
+      </div>
+
+      <div id="city2">
+        <select>
+          <option value="nocity">Choose 2nd city</option>
+          <option value="Austin">Austin, TX</option>
+          <option value="Boston">Boston, MA</option>
+          <option value="Charlotte">Charlotte, NC</option>
+          <option value="Chicago">Chicago, IL</option>
+          <option value="Columbus">Columbus, OH</option>
+          <option value="Dallas">Dallas, TX</option>
+          <option value="Denver">Denver, CO</option>
+          <option value="Detroit">Detroit, MI</option>
+          <option value="El Paso">El Paso, TX</option>
+          <option value="Fort Worth">Fort Worth, TX</option>
+          <option value="Houston">Houston, TX</option>
+          <option value="Indianapolis">Indianapolis, IN</option>
+          <option value="Jacksonville">Jacksonville, FL</option>
+          <option value="Los Angeles">Los Angeles, CA</option>
+          <option value="Memphis">Memphis, TN</option>
+          <option value="Nashville">Nashville, TN</option>
+          <option value="New York">New York, NY</option>
+          <option value="Philadelphia">Philadelphia, PA</option>
+          <option value="Phoenix">Phoenix, AZ</option>
+          <option value="San Antonio">San Antonio, TX</option>
+          <option value="San Diego">San Diego, CA</option>
+          <option value="San Francisco">San Francisco, CA</option>
+          <option value="San Jose">San Jose, CA</option>
+          <option value="Seattle">Seattle, WA</option>
+          <option value="Washington">Washington, DC</option>
+        </select>
+      </div>
+      <div id="city3">
+        <select>
+          <option value="nocity">Choose 3rd city</option>
+          <option value="Austin">Austin, TX</option>
+          <option value="Boston">Boston, MA</option>
+          <option value="Charlotte">Charlotte, NC</option>
+          <option value="Chicago">Chicago, IL</option>
+          <option value="Columbus">Columbus, OH</option>
+          <option value="Dallas">Dallas, TX</option>
+          <option value="Denver">Denver, CO</option>
+          <option value="Detroit">Detroit, MI</option>
+          <option value="El Paso">El Paso, TX</option>
+          <option value="Fort Worth">Fort Worth, TX</option>
+          <option value="Houston">Houston, TX</option>
+          <option value="Indianapolis">Indianapolis, IN</option>
+          <option value="Jacksonville">Jacksonville, FL</option>
+          <option value="Los Angeles">Los Angeles, CA</option>
+          <option value="Memphis">Memphis, TN</option>
+          <option value="Nashville">Nashville, TN</option>
+          <option value="New York">New York, NY</option>
+          <option value="Philadelphia">Philadelphia, PA</option>
+          <option value="Phoenix">Phoenix, AZ</option>
+          <option value="San Antonio">San Antonio, TX</option>
+          <option value="San Diego">San Diego, CA</option>
+          <option value="San Francisco">San Francisco, CA</option>
+          <option value="San Jose">San Jose, CA</option>
+          <option value="Seattle">Seattle, WA</option>
+          <option value="Washington">Washington, DC</option>
+        </select>
+      </div>
+      <div id="city4">
+        <select>
+          <option value="nocity">Choose 4th city</option>
+          <option value="Austin">Austin, TX</option>
+          <option value="Boston">Boston, MA</option>
+          <option value="Charlotte">Charlotte, NC</option>
+          <option value="Chicago">Chicago, IL</option>
+          <option value="Columbus">Columbus, OH</option>
+          <option value="Dallas">Dallas, TX</option>
+          <option value="Denver">Denver, CO</option>
+          <option value="Detroit">Detroit, MI</option>
+          <option value="El Paso">El Paso, TX</option>
+          <option value="Fort Worth">Fort Worth, TX</option>
+          <option value="Houston">Houston, TX</option>
+          <option value="Indianapolis">Indianapolis, IN</option>
+          <option value="Jacksonville">Jacksonville, FL</option>
+          <option value="Los Angeles">Los Angeles, CA</option>
+          <option value="Memphis">Memphis, TN</option>
+          <option value="Nashville">Nashville, TN</option>
+          <option value="New York">New York, NY</option>
+          <option value="Philadelphia">Philadelphia, PA</option>
+          <option value="Phoenix">Phoenix, AZ</option>
+          <option value="San Antonio">San Antonio, TX</option>
+          <option value="San Diego">San Diego, CA</option>
+          <option value="San Francisco">San Francisco, CA</option>
+          <option value="San Jose">San Jose, CA</option>
+          <option value="Seattle">Seattle, WA</option>
+          <option value="Washington">Washington, DC</option>
+        </select>
+      </div>
+      <div id="city5">
+        <select>
+          <option value="nocity">Choose 5th city</option>
+          <option value="Austin">Austin, TX</option>
+          <option value="Boston">Boston, MA</option>
+          <option value="Charlotte">Charlotte, NC</option>
+          <option value="Chicago">Chicago, IL</option>
+          <option value="Columbus">Columbus, OH</option>
+          <option value="Dallas">Dallas, TX</option>
+          <option value="Denver">Denver, CO</option>
+          <option value="Detroit">Detroit, MI</option>
+          <option value="El Paso">El Paso, TX</option>
+          <option value="Fort Worth">Fort Worth, TX</option>
+          <option value="Houston">Houston, TX</option>
+          <option value="Indianapolis">Indianapolis, IN</option>
+          <option value="Jacksonville">Jacksonville, FL</option>
+          <option value="Los Angeles">Los Angeles, CA</option>
+          <option value="Memphis">Memphis, TN</option>
+          <option value="Nashville">Nashville, TN</option>
+          <option value="New York">New York, NY</option>
+          <option value="Philadelphia">Philadelphia, PA</option>
+          <option value="Phoenix">Phoenix, AZ</option>
+          <option value="San Antonio">San Antonio, TX</option>
+          <option value="San Diego">San Diego, CA</option>
+          <option value="San Francisco">San Francisco, CA</option>
+          <option value="San Jose">San Jose, CA</option>
+          <option value="Seattle">Seattle, WA</option>
+          <option value="Washington">Washington, DC</option>
+        </select>
+      </div>
+      <hr>
+      <button id="submit" onclick="submit()">Update</button>
+  </div>
+  <!-- Sliding div ends here -->
+
+  <!--Legend div-->
+    <div id="sidebar">
+      <div id="legend" onclick="toggleLegend()"><h2>Legend</h2></div>
+    </div>
+
+  <!-- THE GRAPH! -->
+    <div id="main">
+      <div id="sequence"></div>
+      <div id="chart">
+        <div id="explanation" style="visibility: hidden;">
+          <span id="percentage"></span><br/>
+          of events are in<br>
+          <p id="location"></p>
+          <span id='catinfo'>category: </span>
+          <span id="category"></span>
+        </div>
+      </div>
+    </div>
+
+    <!--Event details-->
+    <div class="details">
+      <button class="details-button">Close</button>
+      <h4 class="details-header">
+      </h4><hr>
+      <p class="details-target"></p>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.6.1.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="script/Eventbrite.jquery.js"></script>
+    <script type="text/javascript" src="script/mainscript.js"></script>
+  </body>
+</html>
