@@ -1,9 +1,11 @@
 EVENTBRITE VISUALIZER
 =====
 [eventbritevisualizer.bitballoon.com](eventbritevisualizer.bitballoon.com)
+- - - - -
 ![screenshot1](https://raw.githubusercontent.com/michellehn/EventbriteVisualizer/master/screenshots/eventbrite1.png)
 - - - - -
 ![screenshot2](https://raw.githubusercontent.com/michellehn/EventbriteVisualizer/master/screenshots/eventbrite2.png)
+- - - - -
 
 This application displays statistics regarding the number of events
 in the U.S. by city and category.  EventBrite Visualizer also
